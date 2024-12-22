@@ -1,7 +1,6 @@
 # Installation
 
 In this project you should use uv.
-uv installation:
 
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
