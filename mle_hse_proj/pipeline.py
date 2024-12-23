@@ -96,9 +96,9 @@ def main():
     if y_test is not None:
         print(classification_report(y_test, predict))
     else:
-        print('=' * 30, 'saving answer', '='*30)
-        pd.DataFrame(zip(passenger_id, predict.tolist())).to_csv('answer.csv', index=False)
-        print('=' * 30, 'Great! Check the Answer.csv', '='*30)
+        print('=' * 30, 'Saving answer ...', '='*30)
+        pd.DataFrame(zip(passenger_id, predict.tolist())).to_csv(f'answer_{args.model}.csv', index=False)
+        print('=' * 30, 'Great! Check the Answer', '='*30)
         
     
 
