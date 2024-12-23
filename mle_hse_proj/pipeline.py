@@ -47,7 +47,7 @@ def main():
         
         train = pd.read_csv(args.train_csv_path)
         test = pd.read_csv(args.test_csv_path)
-        
+        passenger_id = test['PassengerId']
         
         prepared_train = tf.fill_na(
                         tf.all_cat_column_label_encode(
@@ -96,7 +96,9 @@ def main():
     if y_test is not None:
         print(classification_report(y_test, predict))
     else:
-        print(*predict)
+        print('=' * 30, 'saving answer', '='*30)
+        pd.DataFrame(zip(passenger_id, predict.tolist())).to_csv('answer.csv', index=False)
+        print('=' * 30, 'Great! Check the Answer.csv', '='*30)
         
     
 
